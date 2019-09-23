@@ -2,17 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ogConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MakeAccount">
 
     <TableLayout
         android:id="@+id/table"
-        android:layout_width="408dp"
-        android:layout_height="552dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="389dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,10 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="1">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Name" />
+
             <EditText
                 android:id="@+id/nameEditText"
                 android:layout_width="wrap_content"
@@ -33,7 +29,10 @@
                 android:inputType="textPersonName"
                 android:text="Name" />
 
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Name" />
 
 
         </TableRow>
@@ -42,10 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="2">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Username" />
 
             <EditText
                 android:id="@+id/usernameEditText"
@@ -55,6 +50,10 @@
                 android:inputType="textPersonName"
                 android:text="Username" />
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Username" />
 
 
         </TableRow>
@@ -62,10 +61,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Password" />
+
             <EditText
                 android:id="@+id/passwordText"
                 android:layout_width="wrap_content"
@@ -74,7 +70,10 @@
                 android:inputType="textPassword"
                 android:text="Username" />
 
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Password" />
 
 
         </TableRow>
@@ -82,10 +81,7 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Email" />
+
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="wrap_content"
@@ -94,7 +90,10 @@
                 android:inputType="textPersonName"
                 android:text="Email" />
 
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Email" />
 
 
         </TableRow>
@@ -109,4 +108,58 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addContactBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Add Contact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ContactRelEditText" />
+
+    <TextView
+        android:id="@+id/Contact1TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Primary Contact Information:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table" />
+
+    <EditText
+        android:id="@+id/ContactName1EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First and Last name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Contact1TextView" />
+
+    <EditText
+        android:id="@+id/ContactPhoneEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone Number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ContactName1EditText" />
+
+    <EditText
+        android:id="@+id/ContactRelEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Relationship"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ContactPhoneEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
