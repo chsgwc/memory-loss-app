@@ -15,6 +15,9 @@ public class DatabaseHelper extends SQLiteOpenHelper { //SQLiteOpenHelter - main
     public static final String COL_3_USERNAME = "Username";
     public static final String COL_4_PASSWORD = "Password";
     public static final String COL_5_EMAIL = "Email";
+    public static final String COL_6_contactNAME = "ContactName";
+    public static final String COL_7_contactPHONE = "ContactPhone";
+    public static final String COL_8_contactREL = "ContactRelationship";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -22,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper { //SQLiteOpenHelter - main
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDB) {
-        sqLiteDB.execSQL("create table " + TABLE_NAME + "  (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, USERNAME TEXT, PASSWORD TEXT, EMAIL TEXT)");
+        sqLiteDB.execSQL("create table " + TABLE_NAME + "  (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, USERNAME TEXT, PASSWORD TEXT, EMAIL TEXT, contactName TEXT, contactPhone TEXT, contactRelationship TEXT)");
     }
 
     @Override
@@ -31,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper { //SQLiteOpenHelter - main
         onCreate(sqLiteDB);
     }
 
-    public boolean insertData(String name, String username, String password, String email) {
+    public boolean insertData(String name, String username, String password, String email, String cName, String cPhone, String cRel) {
         //initialize DB
         SQLiteDatabase sqLiteDB = this.getWritableDatabase();
 
@@ -41,6 +44,9 @@ public class DatabaseHelper extends SQLiteOpenHelper { //SQLiteOpenHelter - main
         contentValues.put(COL_3_USERNAME, username);
         contentValues.put(COL_4_PASSWORD, password);
         contentValues.put(COL_5_EMAIL, email);
+        contentValues.put(COL_6_contactNAME, cName);
+        contentValues.put(COL_7_contactPHONE, cPhone);
+        contentValues.put(COL_8_contactREL, cRel);
         long result = sqLiteDB.insert(TABLE_NAME, null, contentValues);
 
         //checking if inserting data was successful or not (^ will return -1 if not)
