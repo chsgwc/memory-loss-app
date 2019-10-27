@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MakeAccount"></activity>
+        <activity
+            android:name=".Games"
+            android:label="@string/title_activity_games"></activity>
+        <activity
+            android:name=".Contacts"
+            android:label="@string/title_activity_contacts" />
+        <activity android:name=".MakeAccount" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

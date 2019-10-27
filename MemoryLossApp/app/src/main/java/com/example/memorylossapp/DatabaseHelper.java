@@ -2,6 +2,7 @@ package com.example.memorylossapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -55,5 +56,11 @@ public class DatabaseHelper extends SQLiteOpenHelper { //SQLiteOpenHelter - main
         } else
             return true;
 
+    }
+
+    public Cursor getAllData(){
+        SQLiteDatabase sqLiteDB = this.getWritableDatabase();
+        Cursor res = sqLiteDB.rawQuery("select * from" + TABLE_NAME, null);
+        return res;
     }
 }
