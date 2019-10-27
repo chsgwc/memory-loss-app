@@ -70,6 +70,7 @@ public class Games extends AppCompatActivity {
                     public void onClick(View view) {
                         if (answerEditText.getText().toString().equals(mapQuestions.get(keys.get(counter)).toString())){
                             showMessage("Correct!","Click Next");
+                            counter++;
                         } else {
                             showMessage("Wrong :(", "Try Again");
                         }
@@ -95,5 +96,6 @@ public class Games extends AppCompatActivity {
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
+        builder.show();
     }
 }

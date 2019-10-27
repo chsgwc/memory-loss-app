@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button signupButton = (Button) findViewById(R.id.signupBtn);
+        Button gamesButton = (Button) findViewById(R.id.GamesButton);
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+        gamesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Open Games page
+                Intent startIntent = new Intent(getApplicationContext(), Games.class);
+                startActivity(startIntent);
+            }
+        });
+
         //notifications
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setSmallIcon(R.drawable.ic_launcher_background);
