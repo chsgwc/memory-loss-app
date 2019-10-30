@@ -1,10 +1,12 @@
 package com.example.memorylossapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,8 +23,8 @@ import androidx.navigation.ui.NavigationUI;
 import static androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID;
 import static com.example.memorylossapp.MakeAccount.myDB;
 
-public class Contacts extends AppCompatActivity {
-    Button viewAllBtn;
+public class ContactsPage extends AppCompatActivity {
+    //Button viewAllBtn;
     String id, name, username, password, email, contactNames, contactPhones, contactRels;
     String[] contNameAr, contPhoneAr, contRelAr;
     ConstraintLayout constraintLayout;
@@ -30,12 +32,12 @@ public class Contacts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contacts);
+        setContentView(R.layout.activity_contacts_page);
 
         constraintLayout = findViewById(R.id.ogcontainer);
 
         //set ID of the previous textview to be 3...? (of their Name's TextView ig...
-        viewAllBtn = (Button) findViewById(R.id.extractBtn);
+        //viewAllBtn = (Button) findViewById(R.id.extractBtn);
         viewAll();
 
         contNameAr = contactNames.split(",");
@@ -52,15 +54,6 @@ public class Contacts extends AppCompatActivity {
         setContactsDisplay(numContacts, context);
 
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
     }
 
     public void setContactsDisplay(int numContacts, Context context){
@@ -70,11 +63,13 @@ public class Contacts extends AppCompatActivity {
             TextView newContact2NameEditText = new TextView(context);
             TextView newContact2PhoneEditText = new TextView(context);
             TextView newContact2RelEditText = new TextView(context);
+            ImageView newImageView = new ImageView(context);
 
             newContact2TextView.setId(ID *100); //wtf is this ID
             newContact2NameEditText.setId(ID *100 +1); //wtf is this ID
             newContact2PhoneEditText.setId(ID *100 +2); //wtf is this ID
             newContact2RelEditText.setId(ID *100 +3);
+            newImageView.setId(ID*100+4);
 
             //hopefully this points an arrow to the EditText objects, not make a copy
             //cNames.add(newContact2NameEditText);
@@ -86,37 +81,50 @@ public class Contacts extends AppCompatActivity {
 //            newContact2PhoneEditText.setInputType(3); //phone input type = 3
             newContact2PhoneEditText.setText(contPhoneAr[ID-1]);
             newContact2RelEditText.setText(contRelAr[ID-1]);
+            if (ID == 1){
+                newImageView.setImageResource(R.drawable.son);
+            } else if (ID == 2){
+                newImageView.setImageResource(R.drawable.daughter);
+            } else if (ID == 3){
+                newImageView.setImageResource(R.drawable.grandson);
+            }
 
             ConstraintLayout.LayoutParams textViewLayoutParams = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             ConstraintLayout.LayoutParams EditTextNameLayoutParams = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             ConstraintLayout.LayoutParams EditTextPhoneLayoutParams = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             ConstraintLayout.LayoutParams EditTextRelLayoutParams = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            ConstraintLayout.LayoutParams imageRelLayoutParams = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
 
             newContact2TextView.setLayoutParams(textViewLayoutParams);
             newContact2NameEditText.setLayoutParams(EditTextNameLayoutParams);
             newContact2PhoneEditText.setLayoutParams(EditTextPhoneLayoutParams);
             newContact2RelEditText.setLayoutParams(EditTextRelLayoutParams);
+            newImageView.setLayoutParams(imageRelLayoutParams);
 
             constraintLayout.addView(newContact2TextView);
             constraintLayout.addView(newContact2NameEditText);
             constraintLayout.addView(newContact2PhoneEditText);
             constraintLayout.addView(newContact2RelEditText);
+            constraintLayout.addView(newImageView);
 
             set.clone(constraintLayout);
             set.constrainWidth(ID*100, ConstraintSet.WRAP_CONTENT);
             set.constrainWidth(ID*100+1, ConstraintSet.WRAP_CONTENT);
             set.constrainWidth(ID*100+2, ConstraintSet.WRAP_CONTENT);
             set.constrainWidth(ID*100+3, ConstraintSet.WRAP_CONTENT);
+            set.constrainWidth(ID*100+4, ConstraintSet.WRAP_CONTENT);
 
             set.connect(ID *100, ConstraintSet.TOP,(ID -1)*100+3, ConstraintSet.BOTTOM, 60);
             set.connect(ID *100, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 108);
             //set.connect(ID*100, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT);
             set.connect(ID*100+1, ConstraintSet.TOP, ID*100, ConstraintSet.BOTTOM);
-            set.connect(ID *100+1, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 108);
+            set.connect(ID *100+1, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 700);
             set.connect(ID*100+2, ConstraintSet.TOP, ID*100+1, ConstraintSet.BOTTOM);
-            set.connect(ID *100+2, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 108);
+            set.connect(ID *100+2, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 700);
             set.connect(ID*100+3, ConstraintSet.TOP, ID*100+2, ConstraintSet.BOTTOM);
-            set.connect(ID *100+3, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 108);
+            set.connect(ID *100+3, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 700);
+            set.connect(ID*100+4, ConstraintSet.TOP, ID*100, ConstraintSet.BOTTOM);
+            set.connect(ID *100+4, ConstraintSet.LEFT, PARENT_ID, ConstraintSet.LEFT, 108);
             set.applyTo(constraintLayout);
 
         }
@@ -155,7 +163,7 @@ public class Contacts extends AppCompatActivity {
 
         //showMessage("Data", buffer.toString());
     }
- //               }
+    //               }
 //        );
 //    }
 
@@ -166,4 +174,6 @@ public class Contacts extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
+
+
 }

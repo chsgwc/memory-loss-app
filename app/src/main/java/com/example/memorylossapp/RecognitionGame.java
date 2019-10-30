@@ -38,42 +38,45 @@ public class RecognitionGame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_games);
+        setContentView(R.layout.activity_recognition_game);
 
-  //      ImageView theImageV = (ImageView) findViewById(R.id.imageView);
-   //     theImageV.setBackgroundResource(R.drawable.chair);
+        final ImageView theImageV = (ImageView) findViewById(R.id.imageView);
+        theImageV.setImageResource(R.drawable.chair);
 
-        final Map<String, String> mapQuestions = new LinkedHashMap<String, String>(); //no idea which Map to use!!
-        mapQuestions.put("Picture: toothbrush", "Toothbrush");
-        mapQuestions.put("Picture: Apple", "Apple");
-        mapQuestions.put("Picture: Chair", "Chair");
-        mapQuestions.put("Picture: Table", "Table");
+        final Map<String, Integer> mapQuestions = new LinkedHashMap<String, Integer>(); //no idea which Map to use!!
+        mapQuestions.put("grandson", R.drawable.grandson);
+        mapQuestions.put("Apple", R.drawable.apple);
+        mapQuestions.put("Chair", R.drawable.chair);
+        mapQuestions.put("Daughter", R.drawable.daughter);
+        mapQuestions.put("Piano", R.drawable.piano);
+        mapQuestions.put("Son", R.drawable.son);
         size = mapQuestions.size();
         counter = 0;
-        keys = new ArrayList(mapQuestions.keySet());
+        keys = new ArrayList(mapQuestions.keySet()); //this might be wrong...
         Collections.shuffle(keys);
 
         Button nextBtn = (Button) findViewById(R.id.nextButton);
-        temppictureTextView = (TextView) findViewById(R.id.tempPicTextView);
+        //temppictureTextView = (TextView) findViewById(R.id.tempPicTextView);
         answerEditText = (EditText) findViewById(R.id.editText);
         checkBtn = (Button) findViewById(R.id.CheckButton);
+
         nextBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if (counter == size-1){
-                            showMessage("Game Finished!", "Your score was ____");
+                            showMessage("Game Finished!", "Congratulations, you remembered all the items!");
                             return;
                         }
-                        temppictureTextView.setText((String) keys.get(counter));
+                        theImageV.setImageResource(mapQuestions.get(keys.get(counter)));
                     }
                 }
         );
-        checkBtn.setOnClickListener(
+        checkBtn.setOnClickListener( //hint option
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (answerEditText.getText().toString().equals(mapQuestions.get(keys.get(counter)).toString())){
+                        if (answerEditText.getText().toString().equals(keys.get(counter))){
                             showMessage("Correct!","Click Next");
                             counter++;
                         } else {

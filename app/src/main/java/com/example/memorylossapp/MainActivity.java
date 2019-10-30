@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         gamesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Open Games page
                 Intent startIntent = new Intent(getApplicationContext(), RecognitionGame.class);
                 startActivity(startIntent);
             }

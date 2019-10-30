@@ -51,12 +51,12 @@
 
         <EditText
             android:id="@+id/ContactName1EditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="174dp"
+            android:layout_height="44dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
             android:ems="10"
-            android:hint="First and Last Name"
+            android:hint="Name of Contact"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/ContactPhoneEditText"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +64,8 @@
 
         <EditText
             android:id="@+id/ContactPhoneEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="134dp"
+            android:layout_height="42dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
             android:ems="10"
@@ -77,8 +77,8 @@
 
         <EditText
             android:id="@+id/ContactRelEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="109dp"
+            android:layout_height="42dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
             android:ems="10"
@@ -155,17 +155,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/tempBtnNS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="16dp"
-            android:text="Temp Btn to Contacts"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addContactBtn" />
+            android:id="@+id/buttonPic"
+            android:layout_width="142dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:text="Attach Picture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ContactRelEditText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
