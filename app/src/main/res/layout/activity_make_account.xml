@@ -4,36 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffdeed"
     tools:context=".MakeAccount">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ogConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ogConstraintLayout"
         tools:context="app.android.MakeAccount">
 
 
-
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/addContactBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="160dp"
+            android:layout_height="56dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
-            android:text="Add Contact"
+            android:text="Add Another Contact"
             app:layout_constraintBottom_toTopOf="@+id/submitBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.945"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ContactRelEditText"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -91,35 +90,17 @@
             android:id="@+id/usernameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginRight="105dp"
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/passwordText"
-            app:layout_constraintStart_toStartOf="@+id/nameEditText"
-            app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
-
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="@+id/passwordText"
-            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
-
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/usernameEditText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintHorizontal_bias="0.309"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+            tools:layout_editor_absoluteY="126dp" />
 
         <EditText
             android:id="@+id/passwordText"
@@ -128,41 +109,74 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/emailEditText"
-            app:layout_constraintStart_toStartOf="@+id/usernameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/usernameEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
         <TextView
             android:id="@+id/ContactTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="308dp"
             android:text="Family and Friends Contact Information:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="sans-serif-black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.635"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Sign Up"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="sans-serif-black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonPic"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="163dp"
+            android:layout_height="51dp"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
+            android:layout_marginBottom="35dp"
             android:text="Attach Picture"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ContactRelEditText" />
+            app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
